@@ -16,5 +16,6 @@ int main(void)
 
 	while (c <= 'f')
 		putchar(c++);
+	putchar('\n');
 	return (0);
 }
