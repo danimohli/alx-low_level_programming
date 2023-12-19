@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * void print_alphabet_x10 - Function name
+ * print_alphabet_x10 - Function name
  *
  * function that print a to z 10x
  * Return: void
