@@ -7,5 +7,21 @@
  */
 int main(void)
 {
-	int 
+	int previousNum = 1, nextNum;
+	int currentNum = 2;
+	int sumEven = 0;
+
+	while (currentNum <= 4000000)
+	{
+		if (currentNum % 2 == 0)
+		{
+			sumEven += currentNum;
+		}
+
+		nextNum = previousNum + currentNum;
+		previousNum = currentNum;
+		currentNum = nextNum;
+	}
+	printf("%d\n", sumEven);
+	return (0);
 }
