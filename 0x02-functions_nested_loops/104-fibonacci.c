@@ -7,10 +7,10 @@ int main(void)
 {
 	unsigned int fib1 = 1;
 	unsigned int fib2 = 2;
-	
+	int i;
 	printf("%u, %u", fib1, fib2);
 	
-	for (int i = 2; i < 98; i++)
+	for (i = 2; i < 98; i++)
 	{
 		unsigned int next = fib1 + fib2;
 		printf(", %u", next);
