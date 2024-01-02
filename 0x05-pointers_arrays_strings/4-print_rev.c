@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * print_rev - print string from last to begginning
  * @s: string to print
@@ -6,17 +7,15 @@
  */
 void print_rev(char *s)
 {
-	int len = 0, loop;
+	int len = strlen(s);
 
-	while (*s != '\0')
+	len = len - 1;
+
+	while (len >= 0)
 	{
-		len++;
-		s++;
-	}
-
-	len -= 1;
-
-	for (loop = 0; loop <= len; len--)
 		_putchar(s[len]);
+		len--;
+	}
+	_putchar(s[len]);
 	_putchar('\n');
 }
