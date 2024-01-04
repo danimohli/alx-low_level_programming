@@ -6,19 +6,31 @@
  */
 char *cap_string(char *str)
 {
-	int cap_next = 1, i;
+	int x = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (str[x])
 	{
-		if (isspace(str[i]) || ispunct(str[i]))
-		{
-			cap_next = 1;
-		}
-		else if (cap_next)
-		{
-			str[i] = toupper(str[i]);
-			cap_next = 0;
-		}
+		while (!(str[x] >= 'a' && str[x] <= 'z'))
+			x++;
+
+		if (str[x - 1] == ' ' ||
+		    str[x - 1] == '\t' ||
+		    str[x - 1] == '\n' ||
+		    str[x - 1] == ',' ||
+		    str[x - 1] == ';' ||
+		    str[x - 1] == '.' ||
+		    str[x - 1] == '!' ||
+		    str[x - 1] == '?' ||
+		    str[x - 1] == '"' ||
+		    str[x - 1] == '(' ||
+		    str[x - 1] == ')' ||
+		    str[x - 1] == '{' ||
+		    str[x - 1] == '}' ||
+		    x == 0)
+			str[x] -= 32;
+
+		x += 1;
 	}
+
 	return (str);
 }
