@@ -6,13 +6,12 @@
  */
 char *_strchr(char *s, char c)
 {
-	char *str = s;
+	int x;
 
-	while (*str != '\0')
+	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (*str == c)
-			return (str);
-		str += 1;
+		if (s[x] == c)
+			return (s + x);
 	}
 	return ('\0');
 }
