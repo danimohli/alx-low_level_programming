@@ -1,19 +1,11 @@
-/**
- * _memcpy - copy memory
- * @dest: destination to copy to
- * @src: srcour where to copy from
- * @n: nth
- * Return: dest
- */
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int x = 0;
+#include <stdio.h>
 
-	while (x < n)
-	{
-		*dest = src[x];
-		dest++;
-		x++;
-	}
-	return (dest);
+char* _memcpy(char *dest, const char *src, unsigned int n) {
+    char *start = dest;
+
+    while (n--) {
+        *dest++ = *src++;
+    }
+    
+    return start;
 }
