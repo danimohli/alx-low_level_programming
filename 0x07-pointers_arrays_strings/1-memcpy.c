@@ -7,14 +7,13 @@
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *des = dest;
 	unsigned int x = 0;
 
 	while (x < n)
 	{
-		*des = src[x];
-		des++;
+		*dest = src[x];
 		x++;
+		dest++;
 	}
-	return (des);
+	return (dest);
 }
