@@ -6,13 +6,11 @@
  */
 char *_strchr(char *s, char c)
 {
-	int index;
-
-	for (index = 0; s[index] >= '\0'; index++)
+	while (*s != '\0')
 	{
-		if (s[index] == c)
-			return (s + index);
+		if (*s == c)
+			return (s);
+		s += 1;
 	}
-
 	return ('\0');
 }
