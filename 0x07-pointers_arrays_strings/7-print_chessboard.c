@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * print_chessboard - print chess board
  * @a: pointer to board
@@ -11,7 +11,7 @@ void print_chessboard(char (*a)[8])
 	for (x = 0; x < 8; x++)
 	{
 		for (y = 0; y < 8; y++)
-			putchar(a[x][y]);
-		putchar('\n');
+			_putchar(a[x][y]);
+		_putchar('\n');
 	}
 }
