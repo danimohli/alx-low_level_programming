@@ -10,6 +10,9 @@ char *_strdup(char *str)
 	int len = strlen(str), lop;
 	char *ptr;
 
+	if (str == NULL)
+		return (NULL);
+
 	ptr = malloc(sizeof(char) * len);
 	if (ptr == NULL)
 		return (NULL);
