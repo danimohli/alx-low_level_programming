@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 /**
  * argstostr - argstostr string
  * @ac: same as argc(argument count)
@@ -7,7 +8,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, totalLenght, currentPosition;
+	int i, totalLength, currentPosition;
 	char *result;
 
 	if (ac == 0 || av == NULL)
