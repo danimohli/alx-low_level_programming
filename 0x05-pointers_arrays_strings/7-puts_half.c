@@ -10,10 +10,19 @@ void puts_half(char *str)
 
 	while (str[z] != '\0')
 		z++;
+	if (z % 2 == 0)
+	{
+		y = z / 2 - 1;
 
-	y = z / 2 - 1;
+		for (x = 0; x <= y; x++)
+			_putchar(str[z / 2 + x]);
+	}
+	else
+	{
+		y = z / 2 + 1;
 
-	for (x = 0; x <= y; x++)
-		_putchar(str[z / 2 + x]);
+		for (x = 0; x < y; x++)
+			_putchar(str[z / 2 + x]);
+	}
 	_putchar('\n');
 }
