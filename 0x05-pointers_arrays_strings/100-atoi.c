@@ -1,10 +1,10 @@
 #include <ctype.h>
 /**
  * _atoi - convert string num char number
- * @s: point to string
+ * @str: point to string
  * Return: convert number
  */
-int _atoi(const char *str)
+int _atoi(char *str)
 {
 	int result = 0;
 	int sign = 1;
