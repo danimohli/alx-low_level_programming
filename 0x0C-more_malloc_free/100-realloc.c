@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 /**
  * _realloc - reallocating memmory from stack to previous allocated memory
  * @ptr: pointer to previous memory
@@ -6,11 +7,9 @@
  * @new_size: new size to reallocate to ptr
  * Return: pointer to new memory allocated
  */
-#include <stdlib.h>
-#include <string.h>
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
+	size_t copy_size;
 	void *new_ptr;
 
 	if (new_size == 0)
@@ -30,7 +29,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (new_ptr == NULL)
 		return (NULL);
 
-	size_t copy_size = (old_size < new_size) ? old_size : new_size;
+	copy_size = (old_size < new_size) ? old_size : new_size;
 
 	memcpy(new_ptr, ptr, copy_size);
 
