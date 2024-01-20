@@ -10,15 +10,13 @@ void print_fibonacci(void)
 	unsigned long long int temp;
 	int i;
 
-	printf("%llu, %llu, ", a, b);
+	printf("1, 2");
 
 	for (i = 3; i <= 98; i++)
 	{
 		temp = a + b;
-		printf("%llu", temp);
+		printf(", %llu", temp);
 
-		if (i != 98)
-			printf(", ");
 		a = b;
 		b = temp;
 	}
