@@ -7,7 +7,7 @@ void print_fibonacci(void)
 {
 	unsigned long int a = 1;
 	unsigned long int b = 2;
-	unsigned long long int temp;
+	unsigned long int temp;
 	int i;
 
 	printf("1, 2");
