@@ -5,9 +5,9 @@
  */
 void print_fibonacci(void)
 {
-	long unsigned int a = 1;
-	long unsigned int b = 2;
-	long unsigned int temp;
+	unsigned long int a = 1;
+	unsigned long int b = 2;
+	unsigned long int temp;
 	int i;
 
 	printf("%lu, %lu, ", a, b);
