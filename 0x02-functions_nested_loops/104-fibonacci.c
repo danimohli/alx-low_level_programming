@@ -5,17 +5,17 @@
  */
 void print_fibonacci(void)
 {
-	unsigned int a = 1;
-	unsigned int b = 2;
-	unsigned int temp;
+	long unsigned int a = 1;
+	long unsigned int b = 2;
+	long unsigned int temp;
 	int i;
 
-	printf("%u, %u, ", a, b);
+	printf("%lu, %lu, ", a, b);
 
 	for (i = 3; i <= 98; i++)
 	{
 		temp = a + b;
-		printf("%u", temp);
+		printf("%lu", temp);
 
 		if (i != 98)
 			printf(", ");
