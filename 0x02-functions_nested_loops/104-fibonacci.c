@@ -8,10 +8,11 @@ void print_fibonacci(void)
 	unsigned int a = 1;
 	unsigned int b = 2;
 	unsigned int temp;
+	int i;
 
 	printf("%u, %u, ", a, b);
 
-	for (int i = 3; i <= 98; i++)
+	for (i = 3; i <= 98; i++)
 	{
 		temp = a + b;
 		printf("%u", temp);
