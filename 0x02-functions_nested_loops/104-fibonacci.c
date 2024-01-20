@@ -10,12 +10,12 @@ void print_fibonacci(void)
 	unsigned long long int temp;
 	int i;
 
-	printf("%lu, %lu, ", a, b);
+	printf("%llu, %llu, ", a, b);
 
 	for (i = 3; i <= 98; i++)
 	{
 		temp = a + b;
-		printf("%lu", temp);
+		printf("%llu", temp);
 
 		if (i != 98)
 			printf(", ");
