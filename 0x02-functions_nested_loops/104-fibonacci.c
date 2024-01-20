@@ -1,24 +1,34 @@
 #include <stdio.h>
 /**
- * main - main function for other
+ * print_fibonacci - print fibonnanci
+ * Return: void function
+ */
+void print_fibonacci(void)
+{
+	unsigned int a = 1;
+	unsigned int b = 2;
+	unsigned int temp;
+
+	printf("%u, %u, ", a, b);
+
+	for (int i = 3; i <= 98; i++)
+	{
+		temp = a + b;
+		printf("%u", temp);
+
+		if (i != 98)
+			printf(", ");
+		a = b;
+		b = temp;
+	}
+	printf("\n");
+}
+/**
+ * main - main function
  * Return: 0
  */
 int main(void)
 {
-	unsigned int fib1 = 1;
-	unsigned int fib2 = 2;
-	int i;
-
-	printf("%u, %u", fib1, fib2);
-	for (i = 2; i <= 98; i++)
-	{
-		unsigned int next = fib1 + fib2;
-
-		printf(", %u", next);
-
-		fib1 = fib2;
-		fib2 = next;
-	}
-	printf("\n");
+	print_fibonacci();
 	return (0);
 }
