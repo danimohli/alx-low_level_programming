@@ -15,7 +15,7 @@ void print_fibonacci(void)
 	for (i = 3; i <= 98; i++)
 	{
 		temp = a + b;
-		printf(", %llu", temp);
+		printf(", %lu", temp);
 
 		a = b;
 		b = temp;
