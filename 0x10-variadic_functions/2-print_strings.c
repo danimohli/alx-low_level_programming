@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * print_numbers - print number with seperato
+ * print_strings - print string with seperato
  * @n: len of arguments
  * @separator: seperator
  * Return: void function
@@ -17,7 +17,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	for (x = 0; x < n; x++)
 	{
 		y = va_arg(args, char *);
-		printf("%s", y);
+		if (y != NULL)
+			printf("%s", y);
+		else
+			printf("(nil)");
 
 		if (separator != NULL && x < n - 1)
 			printf("%s", separator);
