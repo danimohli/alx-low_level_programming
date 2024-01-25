@@ -13,10 +13,8 @@ void print_all(const char * const format, ...)
 	float floa;
 
 	va_start(args, format);
-	while (format[x] != '\0')
+	while (format[x] != '\0' && x < 9)
 	{
-		if (x == 9)
-			break;
 		if (format[x] == 'c')
 		{
 			c = (char) va_arg(args, int);
