@@ -39,10 +39,9 @@ void print_all(const char * const format, ...)
 				}
 				printf("%s", str);
 				break;
-			default:
-				break;
 		}
-		if (format[x + 1] != '\0')
+		if (format[x + 1] != '\0' && (format[x] == 's' || format[x] == 'i' ||
+					format[x] == 'c' || format[x] == 'f'))
 			printf(", ");
 		x++;
 	}
