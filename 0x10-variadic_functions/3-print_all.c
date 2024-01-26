@@ -8,42 +8,41 @@
  */
 void print_all(const char * const format, ...)
 {
-	Arg current_arg;
 	va_list args;
-	int x = 0;
+	int x = 0, num;
+	char c, *str;
+	float floa;
 
 	va_start(args, format);
 	while (format[x] != '\0' && x < 9)
 	{
-		current_arg.type = format[x];
-		switch (current_arg.type)
+		switch (format[x])
 		{
 			case 'c':
-				current_arg.value.char_val = (char)va_arg(args, int);
-				printf("%c\n", current_arg.value.char_val);
+				c = (char) va_arg(args, int);
+				printf("%c\n", c);
 				break;
 			case 'i':
-				current_arg.value.int_val = va_arg(args, int);
-				printf("%d\n", current_arg.value.int_val);
+				num = va_arg(args, int);
+				printf("%d\n", num);
 				break;
 			case 'f':
-				current_arg.value.float_val = (float)va_arg(args, double);
-				printf("%f\n", current_arg.value.float_val);
+				floa = (float) va_arg(args, double);
+				printf("%f\n", floa);
 				break;
 			case 's':
-				current_arg.value.str_val = va_arg(args, char *);
-				if (current_arg.value.str_val == NULL)
+				str = va_arg(args, char *);
+				if (str == NULL)
 				{
 					printf("(nil)\n");
+					break;
 				}
-				else if (current_arg.value.str_val != NULL)
-				{
-					printf("%s\n", current_arg.value.str_val);
-				}
+				printf("%s\n", str);
+				break;
+			default:
 				break;
 		}
 		x++;
 	}
 	va_end(args);
-	printf("\n");
 }
