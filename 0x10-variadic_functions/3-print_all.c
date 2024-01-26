@@ -5,9 +5,6 @@
  * print_all - print all values wiht 1 function
  * @format: string character
  */
-#include <stdarg.h>
-#include <stdio.h>
-
 void print_all(const char * const format, ...)
 {
 	va_list args;
