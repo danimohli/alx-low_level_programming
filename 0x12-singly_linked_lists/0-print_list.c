@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * print_lists - print all element of list-t
+ * print_list - print all element of list-t
  * @h: list_t head
  * Return: len of list
  */
