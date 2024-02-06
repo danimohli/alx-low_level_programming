@@ -1,47 +1,52 @@
+#include <stdlib.h>
 #include "lists.h"
 /**
- * insert_nodeint_at_index - insert node at given index
- * @idx: index to insert at
- * @n: data of new node
- * Return: new nod, NULL
- * @head: point head list
+ * insert_nodeint_at_index - Base on index specify
+ * @head: To struc
+ * @n: nth index
+ * @idx: index specify
+ * Return: iserted node
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int num = 0;
+	listint_t *new_node, *current;
+	unsigned int count;
 
-	listint_t *ptr, *prev;
-	listint_t *nod = *head;
-
-	ptr = malloc(sizeof(listint_t));
-	if (ptr == NULL)
+	if (head == NULL)
 		return (NULL);
-
-	ptr->n = n;
-	ptr->next = NULL;
 
 	if (idx == 0)
 	{
-		ptr->next = *head;
-		*head = ptr;
-		return (ptr);
+		new_node = malloc(sizeof(listint_t));
+
+		if (new_node == NULL)
+			return (NULL);
+
+		new_node->n = n;
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
 	}
 
-	while (nod != NULL && num <= idx)
+	current = *head;
+	count = 0;
+
+	while (count < idx - 1 && current != NULL)
 	{
-		prev = nod;
-		nod = nod->next;
-		num++;
+		current = current->next;
+		count++;
 	}
 
-	if (num < idx)
-	{
-		free(ptr);
+	if (current == NULL)
 		return (NULL);
-	}
 
-	prev->next = ptr;
-	ptr->next = nod;
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
+		return (NULL);
 
-	return (ptr);
+	new_node->n = n;
+	new_node->next = current->next;
+	current->next = new_node;
+
+	return (new_node);
 }
