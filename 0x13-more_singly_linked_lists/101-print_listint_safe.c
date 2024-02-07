@@ -30,12 +30,6 @@ size_t print_listint_safe(const listint_t *head)
 			printf("[%p] %d\n", (void *)weak, weak->n);
 			printf("[%p] %d\n", (void *)safe->next, safe->next->n);
 			printf("-> [%p] %d\n", (void *)safe->next->next, safe->next->next->n);
-			/**
-			 * printf("-> [%p] %d\n", (void *)safe->next->next->next,
-			 * safe->next->next->next->n);
-			 * printf("-> [%p] %d\n", (void *)safe->next->next->next->next,
-			 * safe->next->next->next->next->n);
-			 */
 			exit(98);
 		}
 	}
