@@ -8,7 +8,7 @@ int get_endianness(void)
 	unsigned char *bytePtr = (unsigned char *)&value;
 
 	if (*bytePtr == 1)
-		return (1);
-	else
 		return (0);
+	else
+		return (1);
 }
