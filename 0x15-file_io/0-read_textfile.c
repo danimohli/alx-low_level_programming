@@ -2,7 +2,7 @@
 /**
  * read_textfile - create a file and read into it.
  * @filename: file name to create and to read to
- * @letter: number of byte to read
+ * @letters: number of byte to read
  * Return: number of byte read
  */
 ssize_t read_textfile(const char *filename, size_t letters)
@@ -15,10 +15,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
-	
+
 	if (fd == -1)
 		return (0);
-	
+
 	ptr = malloc(letters + 1);
 	if (ptr == NULL)
 	{
