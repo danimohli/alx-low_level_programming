@@ -1,21 +1,26 @@
-#include <ctype.h>
 /**
  * _atoi - convert string num char number
- * @str: point to string
+ * @s: point to string
  * Return: convert number
  */
-int _atoi(char *str)
+int _atoi(char *s)
 {
-	int result = 0;
-	int sign = 1;
+	int one = 1, num = 0;
 
-	while (isspace(*str))
-		str++;
+	while (*s != '\0')
+	{
+		if (*s == '-' && one > 0)
+			one = -1;
+		else if (*s == '-' && one < 0)
+			one = 1;
 
-	if (*str == '-' || *str == '+')
-		sign = (*str++ == '-') ? -1 : 1;
+		if (*s >= '0' && *s <= '9')
+			num = num * 10 + (*s - '0');
 
-	while (isdigit(*str))
-		result = result * 10 + (*str++ - '0');
-	return (sign * result);
+		if ((*s >= '0' && *s <= '9') && !(*(s + 1) >= '0' && *(s + 1) <= '9'))
+			break;
+		s++;
+	}
+	num = num * one;
+	return (num);
 }
