@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * _delete_dnodeint_at_index - del at index
+ * delete_dnodeint_at_index - del at index
  * @head: head of lists or nodes
  * @index: indexto del from
  * Return: -1 / 1
