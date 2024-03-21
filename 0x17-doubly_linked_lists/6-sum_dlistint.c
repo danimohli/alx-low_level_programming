@@ -2,7 +2,7 @@
 /**
  * sum_dlistint - sum all node data together
  * @head: head of node
- * Return: summary
+ * Return: summary of node
  */
 int sum_dlistint(dlistint_t *head)
 {
