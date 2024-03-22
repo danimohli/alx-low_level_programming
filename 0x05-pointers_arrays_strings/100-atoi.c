@@ -5,7 +5,8 @@
  */
 int _atoi(char *s)
 {
-	int one = 1, num = 0;
+	int one = 1; 
+	unsigned int num = 0;
 
 	while (*s != '\0')
 	{
