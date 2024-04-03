@@ -28,8 +28,8 @@ char *argstostr(int ac, char **av)
 	{
 		strcpy(result + currentPosition, av[i]);
 		currentPosition += strlen(av[i]);
-		result[currentPosition++] = '\n';
+		result[currentPosition + 1] = '\n';
 	}
-	result[currentPosition - 1] = '\0';
+	result[currentPosition + 1] = '\0';
 	return (result);
 }
