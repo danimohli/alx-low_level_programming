@@ -3,14 +3,14 @@
  * @str: string converting to hash
  * Return: hash string
  */
-unsigned long hash_djb2(const unsigned char *str)
+unsigned long int hash_djb2(const unsigned char *str)
 {
-	int x;
-	unsigned long hah = 5381;
+	unsigned long int hash  = 5381;
+	int c;
 
-	while ((x = *str++))
+	while ((c = *str++))
 	{
-		hah = ((hah << 5) + hah) + c; /* hash * 33 + x */
+		hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
 	}
-	return (hah);
+	return (hash);
 }
