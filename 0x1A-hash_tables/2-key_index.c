@@ -1,3 +1,4 @@
+#include "hash_tables.h"
 /**
  * key_index - index function for hash
  * @key: name of value
