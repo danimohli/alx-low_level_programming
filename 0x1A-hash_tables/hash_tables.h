@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 /**
  * struct shash_node_s - Node of a sorted hash table
  *
@@ -84,85 +85,4 @@ void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
 
-
-/**
- * shash_table_set - Adds an element to the sorted hash table
- * @ht: The sorted hash table to add or update the key/value pair
- * @key: The key to add or update
- * @value: The value associated with the key
- * Return: 1 if successful, 0 otherwise
- */
-int shash_table_set(shash_table_t *ht, const char *key, const char *value)
-{
-	unsigned long int inx;
-	shash_node_t *node = NULL, *tp = NULL;
-
-	if (ht == NULL || key == NULL || *key == '\0')
-		return (0);
-
-	inx = key_index((const unsigned char *)key, ht->size);
-
-	/* Check if the key already exists, update its value */
-	tp = ht->array[inx];
-	while (tp != NULL)
-	{
-		if (strcmp(tp->key, key) == 0)
-		{
-			/* Free the old value and update with the new value */
-			free(tp->value);
-			tp->value = strdup(value);
-			if (tp->value == NULL)
-				return (0);
-			return (1);
-		}
-		tp = tp->next;
-	}
-
-	/* Create a new node */
-	node = malloc(sizeof(shash_node_t));
-	if (node == NULL)
-		return (0);
-
-	node->key = strdup(key);
-	if (node->key == NULL)
-	{
-		free(node);
-		return (0);
-	}
-	node->value = strdup(value);
-	if (node->value == NULL)
-	{
-		free(node->key);
-		free(node);
-		return (0);
-	}
-	/* Add the new node to the sorted linked list */
-	if (ht->shead == NULL || strcmp(key, ht->shead->key) < 0)
-	{
-		node->snext = ht->shead;
-		node->sprev = NULL;
-		if (ht->shead != NULL)
-			ht->shead->sprev = node;
-		ht->shead = node;
-		if (ht->stail == NULL)
-			ht->stail = node;
-	}
-	else
-	{
-		tp = ht->shead;
-		while (tp->snext != NULL && strcmp(key, tp->snext->key) > 0)
-			tp = tp->snext;
-		node->snext = tp->snext;
-		if (tp->snext != NULL)
-			tp->snext->sprev = node;
-		tp->snext = node;
-		node->sprev = tp;
-		if (tp == ht->stail)
-			ht->stail = node;
-	}
-	/* Add the new node to the hash table array */
-	node->next = ht->array[inx];
-	ht->array[inx] = node;
-	return (1);
-}
 #endif
