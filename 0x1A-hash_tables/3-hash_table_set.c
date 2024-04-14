@@ -13,7 +13,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
-	inx = key_ndex((const unsigned char *)key, ht->size);
+	inx = key_index((const unsigned char *)key, ht->size);
 	/* Check if the key already exists, update its value */
 	tp = ht->array[inx];
 	while (tp != NULL)
