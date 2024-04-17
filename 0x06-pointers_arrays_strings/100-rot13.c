@@ -6,22 +6,20 @@
  */
 char *rot13(char *s)
 {
+	int x, y;
 	char str[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char n13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	int x = 0;
 
-	while (*s != '\0')
+	for (x = 0; s[x] != '\0'; x++)
 	{
-		while (str[x] != '\0')
+		for (y = 0; str[y] != '\0'; y++)
 		{
-			if (str[x] == *s)
+			if (str[y] == s[x])
 			{
-				*s = n13[x];
+				s[x] = n13[y];
 				break;
 			}
-			x += 1;
 		}
-		s += 1;
 	}
 	return (s);
 }
