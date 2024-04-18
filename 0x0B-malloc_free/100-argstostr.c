@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 /**
  * argstostr - argstostr string
  * @ac: same as argc(argument count)
@@ -8,28 +9,25 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, totalLength, currentPosition;
-	char *result;
+	char *ptr;
+	int size = 0, lop, ins = 0;
+	int x, y;
 
-	if (ac == 0 || av == NULL)
+	for (lop = 0; lop < ac; lop++)
+		size += strlen(av[lop]) + 1;
+
+	ptr = (char *)malloc(sizeof(char) * size);
+	if (ptr == NULL)
 		return (NULL);
 
-	totalLength = 0;
-	for (i = 0; i < ac; ++i)
-		totalLength += (strlen(av[i]));
-
-	result = (char *)malloc((totalLength + 1) * sizeof(char));
-
-	if (result == NULL)
-		return (NULL);
-
-	currentPosition = 0;
-	for (i = 0; i < ac; ++i)
+	for (x = 0; x < ac; x++)
 	{
-		strcpy(result + currentPosition, av[i]);
-		currentPosition += strlen(av[i]);
-		result[currentPosition] = '\n';
+		for (y = 0; av[x][y] != '\0'; y++)
+		{
+			ptr[ins++] = av[x][y];
+		}
+		ptr[ins++] = '\n';
 	}
-	result[currentPosition + 1] = '\0';
-	return (result);
+	ptr[ins] = '\0';
+	return (ptr);
 }
