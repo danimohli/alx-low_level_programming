@@ -13,7 +13,7 @@ char *argstostr(int ac, char **av)
 	int size = 0, lop, ins = 0;
 	int x, y;
 
-	if (ac == 0 or av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (lop = 0; lop < ac; lop++)
