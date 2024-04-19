@@ -20,10 +20,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (ptr == NULL)
 	{
-		alloc = malloc(new_size);
+		/*alloc = malloc(new_size);
 		if (alloc == NULL)
-			return (NULL);
-		return (alloc);
+			return (NULL);*/
+		return (NULL);
 	}
 	alloc = malloc(new_size);
 	memcpy(alloc, ptr, old_size);
