@@ -1,6 +1,4 @@
-#include <string.h>
 #include "dog.h"
-#include <stdlib.h>
 /**
  * new_dog - create new dog
  * @name: name of the name dog
@@ -25,6 +23,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		}
 		for (lop = 0; lop < len; lop++)
 			name_c[lop] = name[lop];
+		name_c[lop] = '\0';
 	}
 	if (owner)
 	{
@@ -38,6 +37,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		}
 		for (lop = 0; lop < len; lop++)
 			owner_c[lop] = owner[lop];
+		owner_c[lop] = '\0';
 	}
 	new_d = (dog_t *)malloc(sizeof(dog_t));
 	if (new_d == NULL)
