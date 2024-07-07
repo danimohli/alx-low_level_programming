@@ -7,31 +7,36 @@
  */
 void print_buffer(char *b, int size)
 {
-	int x, y = 0;
+	int x, y;
 
 	if (size <= 0)
-		printf("\n");
-	for (x = 0; x < size; x++)
 	{
-		if (x < size)
+		printf("\n");
+		return;
+	}
+
+	for (x = 0; x < size; x += 10)
+	{
+		printf("%08x: ", x);
+		for (y = 0; y < 10; y++)
 		{
-			if (x % 10 == 0)
-				printf("%08x: ", x);
-			printf("%02x", b[x]);
-			if (x % 2 == 1)
+			if (x + y < size)
+				printf("%02x", b[x + y]);
+			else
+				printf("  ");
+			if (y % 2 == 1)
 				printf(" ");
-			if ((x + 1) % 10 == 0)
+		}
+		for (y = 0; y < 10; y++)
+		{
+			if (x + y < size)
 			{
-				for (; y < x + 1; y++)
-				{
-					if (b[y] >= 32 && b[y] <= 126)
-						printf("%c", b[y]);
-					else
-						printf(".");
-				}
+				if (b[x + y] >= 32 && b[x + y] <= 126)
+					printf("%c", b[x + y]);
+				else
+					printf(".");
 			}
 		}
-		if ((x + 1) % 10 == 0 || (x + 1) == size)
-			printf("\n");
+		printf("\n");
 	}
 }
