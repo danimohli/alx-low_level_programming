@@ -25,7 +25,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	sum = 0;
 	i = len1 - 1;
 	j = len2 - 1;
-	k = max_len - 1;
+	k = max_len;
 	r[k--] = '\0';
 
 	while (i >= 0 || j >= 0 || carry)
